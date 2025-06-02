@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+python-multipart
+PyPDF2
+transformers
+torch
+passlib[bcrypt]
+python-jose[cryptography]
+
