@@ -7,7 +7,6 @@
 .btn {
   @apply mt-4 px-4 py-2 rounded text-white font-semibold;
 }
-
 .btn-primary {
   @apply bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded;
 }
