@@ -97,6 +97,8 @@ tutors = []
 messages = []
 
 class StudentIn(BaseModel):
+    username: str
+    password: str
     name: str
     overall_score: int
     career_interests: str
