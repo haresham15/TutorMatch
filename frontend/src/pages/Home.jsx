@@ -7,7 +7,7 @@ export default function Home() {
 
   return (
     <section className="h-screen flex flex-col justify-center items-center text-center px-4">
-      <img src="/tutorLogo.png" alt="TutorMatch Logo" className="w-32 h-32 mb-6 animate-pulse" />
+      <img src="/tutorLogo.png" alt="TutorMatch Logo" className="w-64 h-64 mb-6 animate-pulse" />
       <h1 className="text-6xl font-extrabold mb-4">Learn, Grow, and Connect</h1>
       <p className="text-xl text-gray-300 mb-6">Connecting students with certified tutors through AI</p>
 
