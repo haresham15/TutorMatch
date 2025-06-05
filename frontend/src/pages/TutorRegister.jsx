@@ -20,21 +20,19 @@ const TutorRegister = () => {
     e.preventDefault();
 
     try {
-      // Step 1: Register login credentials
-      const regRes = await axios.post("/api/register", {
+      // Step 1: Register the user account
+      await axios.post("/api/register", {
         username,
         password,
-        role: "tutor",
+        role: "tutor"
       });
-      toast.success("Account created!");
 
-      // Step 2: Log in and store token
+      // Step 2: Login to get the access token
       const loginRes = await axios.post("/token", new URLSearchParams({
         username,
-        password,
-      }), {
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      });
+        password
+      }));
+
       const token = loginRes.data.access_token;
       localStorage.setItem("token", token);
 
@@ -56,8 +54,9 @@ const TutorRegister = () => {
         },
       });
 
-      toast.success("Tutor profile registered!");
+      toast.success("Tutor registered successfully!");
       navigate("/tutor/dashboard");
+
     } catch (err) {
       console.error(err);
       toast.error(err.response?.data?.detail || "Registration failed");
@@ -73,24 +72,23 @@ const TutorRegister = () => {
           placeholder="Username"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          className="p-2 rounded"
-          required
+          className="input"
         />
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          className="p-2 rounded"
-          required
+          className="input"
         />
+
         <input
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder="Full Name"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="text"
@@ -98,7 +96,7 @@ const TutorRegister = () => {
           onChange={(e) => setExperience(e.target.value)}
           placeholder="Experience (e.g. 3 years tutoring)"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="text"
@@ -106,7 +104,7 @@ const TutorRegister = () => {
           onChange={(e) => setCredentials(e.target.value)}
           placeholder="Credentials (e.g. Certified Tutor)"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="text"
@@ -114,7 +112,7 @@ const TutorRegister = () => {
           onChange={(e) => setExpertiseCourses(e.target.value)}
           placeholder="Expertise Courses (comma separated)"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="text"
@@ -122,7 +120,7 @@ const TutorRegister = () => {
           onChange={(e) => setAddress(e.target.value)}
           placeholder="Address"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="email"
@@ -130,20 +128,20 @@ const TutorRegister = () => {
           onChange={(e) => setContactInfo(e.target.value)}
           placeholder="Contact Email"
           required
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="url"
           value={calendly}
           onChange={(e) => setCalendly(e.target.value)}
           placeholder="Calendly Link (optional)"
-          className="p-2 rounded"
+          className="input"
         />
         <input
           type="file"
           onChange={(e) => setResume(e.target.files[0])}
           required
-          className="p-2 text-white"
+          className="input text-white"
         />
         <button
           type="submit"
