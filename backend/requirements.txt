@@ -1,11 +1,7 @@
 fastapi
 uvicorn
-openai
-numpy
-scikit-learn
-PyPDF2
 transformers
-torch
-passlib[bcrypt]
-python-jose[cryptography]
-
+PyPDF2
+passlib
+python-jose
+python-multipart
