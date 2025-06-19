@@ -1,5 +1,5 @@
 import { authHeaders } from "./auth";
-const API_BASE = "/api";
+const API_BASE = "https://tutormatch-zkec.onrender.com";
 export async function registerStudent(data) {
   const res = await fetch(`${API_BASE}/register-student`, {
     method: "POST",
